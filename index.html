@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinar Carkci Portfolio</title>
+  <meta name="description" content="Portfolio of Pinar Carkci, Software Development student at Ter AA in Helmond.">
+  <meta name="theme-color" content="#07061A">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ===== Space background: stars are drawn by script.js ===== -->
+  <div class="space" aria-hidden="true">
+    <div class="nebula nebula-a"></div>
+    <div class="nebula nebula-b"></div>
+    <div class="nebula nebula-c"></div>
+    <canvas id="stars"></canvas>
+  </div>
+
+  <div class="page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ===== Navigation ===== -->
+    <header class="nav" id="top">
+      <div class="nav-inner">
+        <a class="logo" href="#top" aria-label="Pinar Carkci, back to top">
+          <!-- the star is the dot on the i -->
+          P<span class="logo-i">ı<svg class="logo-star" viewBox="-10 -10 20 20" aria-hidden="true"><path d="M0-9C1-2 2-1 9 0 2 1 1 2 0 9-1 2-2 1-9 0-2-1-1-2 0-9Z"/></svg></span>nar
+        </a>
+
+        <nav class="nav-links" id="nav-links" aria-label="Main">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ===== Hero ===== -->
+      <section class="hero wrap">
+        <div class="hero-text">
+          <p class="pill">
+            <svg class="pill-star" viewBox="-10 -10 20 20" aria-hidden="true"><path d="M0-9C1-2 2-1 9 0 2 1 1 2 0 9-1 2-2 1-9 0-2-1-1-2 0-9Z"/></svg>
+            Software Development student in Helmond
+          </p>
+          <h1>Pinar Carkci</h1>
+          <p class="hero-role">I turn ideas into <span class="typed">working software</span><span class="caret" aria-hidden="true"></span></p>
+          <p class="hero-sub">Third-year student at Ter AA, working across desktop, web, APIs and hardware.</p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">See my projects</a>
+            <a class="btn btn-glass" href="https://github.com/Pinarcarkci" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-glass" href="https://www.linkedin.com/in/pinarcarkci/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- The moon scene with the cat -->
+        <div class="hero-scene">
+          <span class="cat-bubble" id="cat-bubble" aria-hidden="true">purr</span>
+          <button class="scene-button" id="cat" type="button" aria-label="Pet the cat">
+            <svg class="scene" viewBox="0 0 520 480" aria-hidden="true">
+              <defs>
+                <radialGradient id="moon-fill" cx="36%" cy="30%" r="80%">
+                  <stop offset="0" stop-color="#FFF9EA"/>
+                  <stop offset="0.5" stop-color="#EBDCFF"/>
+                  <stop offset="1" stop-color="#A88BFF"/>
+                </radialGradient>
+                <radialGradient id="moon-glow">
+                  <stop offset="0.55" stop-color="#9D7BFF" stop-opacity="0.55"/>
+                  <stop offset="0.78" stop-color="#FF6AD5" stop-opacity="0.14"/>
+                  <stop offset="1" stop-color="#FF6AD5" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="rim" gradientUnits="userSpaceOnUse" x1="0" x2="520" y1="0" y2="0">
+                  <stop offset="0" stop-color="#5CE1FF" stop-opacity="0"/>
+                  <stop offset="0.2" stop-color="#5CE1FF"/>
+                  <stop offset="0.5" stop-color="#9D7BFF"/>
+                  <stop offset="0.8" stop-color="#FF6AD5"/>
+                  <stop offset="1" stop-color="#FF6AD5" stop-opacity="0"/>
+                </linearGradient>
+                <!-- the hill is solid at the top and fades into the sky below -->
+                <radialGradient id="hill-fill" gradientUnits="userSpaceOnUse" cx="260" cy="380" r="262" gradientTransform="translate(260 380) scale(1 0.38) translate(-260 -380)">
+                  <stop offset="0" stop-color="#07061A"/>
+                  <stop offset="0.5" stop-color="#07061A"/>
+                  <stop offset="1" stop-color="#07061A" stop-opacity="0"/>
+                </radialGradient>
+                <clipPath id="scene-clip"><rect x="-40" y="-80" width="600" height="560"/></clipPath>
+                <linearGradient id="planet-fill" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#FF6AD5"/>
+                  <stop offset="1" stop-color="#7B5CFF"/>
+                </linearGradient>
+                <filter id="blur-rim" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="7"/>
+                </filter>
+                <clipPath id="eye-clip"><ellipse rx="17" ry="13"/></clipPath>
+              </defs>
+
+              <!-- moon -->
+              <circle cx="260" cy="205" r="258" fill="url(#moon-glow)"/>
+              <circle cx="260" cy="205" r="185" fill="url(#moon-fill)"/>
+              <g class="craters">
+                <circle cx="182" cy="128" r="27"/>
+                <circle cx="338" cy="104" r="15"/>
+                <circle cx="372" cy="232" r="30"/>
+                <circle cx="146" cy="246" r="15"/>
+                <circle cx="258" cy="62" r="9"/>
+                <circle cx="306" cy="168" r="8"/>
+              </g>
+
+              <!-- small planet with a ring -->
+              <g transform="translate(456 76) rotate(-18)">
+                <g class="floating">
+                  <path class="ring" d="M-36 0A36 10 0 0 1 36 0"/>
+                  <circle r="15" fill="url(#planet-fill)"/>
+                  <path class="ring" d="M-36 0A36 10 0 0 0 36 0"/>
+                </g>
+              </g>
+
+              <!-- sparkles -->
+              <path class="sparkle" transform="translate(58 96) scale(1.3)" d="M0-9C1-2 2-1 9 0 2 1 1 2 0 9-1 2-2 1-9 0-2-1-1-2 0-9Z"/>
+              <path class="sparkle sparkle-late" transform="translate(474 300) scale(0.9)" d="M0-9C1-2 2-1 9 0 2 1 1 2 0 9-1 2-2 1-9 0-2-1-1-2 0-9Z"/>
+              <path class="sparkle sparkle-later" transform="translate(40 330) scale(0.7)" d="M0-9C1-2 2-1 9 0 2 1 1 2 0 9-1 2-2 1-9 0-2-1-1-2 0-9Z"/>
+
+              <!-- the hill the cat sits on, with a neon edge -->
+              <g clip-path="url(#scene-clip)">
+                <circle class="hill-glow" cx="260" cy="900" r="520" filter="url(#blur-rim)"/>
+                <circle class="hill" cx="260" cy="900" r="520"/>
+              </g>
+
+              <!-- the cat -->
+              <g class="cat" transform="translate(260 387) scale(0.8) translate(-200 -362)">
+                <path class="cat-tail" d="M258 350C306 362 340 338 336 300 333 274 314 262 303 272"/>
+                <path class="cat-fur" d="M152 228C112 262 104 330 130 362H270C296 330 288 262 248 228Z"/>
+                <path class="cat-fur" d="M146 92 188 126Q200 122 212 126L254 92Q262 120 262 152 268 172 266 190L280 198 264 206 272 220 252 223Q200 250 148 223L128 220 136 206 120 198 134 190Q132 172 138 152 138 120 146 92Z"/>
+
+                <!-- eyes: script.js moves the pupils -->
+                <g transform="translate(174 172) rotate(7)">
+                  <g clip-path="url(#eye-clip)">
+                    <ellipse class="eye" rx="17" ry="13"/>
+                    <g class="pupil"><ellipse rx="7.5" ry="11"/><circle class="glint" cx="-3.5" cy="-5" r="2.4"/></g>
+                    <rect class="lid" x="-18" y="-14" width="36" height="28"/>
+                  </g>
+                  <path class="eye-closed" d="M-13 1Q0 11 13 1"/>
+                </g>
+                <g transform="translate(226 172) rotate(-7)">
+                  <g clip-path="url(#eye-clip)">
+                    <ellipse class="eye" rx="17" ry="13"/>
+                    <g class="pupil"><ellipse rx="7.5" ry="11"/><circle class="glint" cx="-3.5" cy="-5" r="2.4"/></g>
+                    <rect class="lid" x="-18" y="-14" width="36" height="28"/>
+                  </g>
+                  <path class="eye-closed" d="M-13 1Q0 11 13 1"/>
+                </g>
+                <path class="cat-nose" d="M195 194H205L200 200Z"/>
+              </g>
+            </svg>
+          </button>
+          <p class="cat-hint" id="cat-hint" aria-live="polite">She watches your cursor. Click to pet her.</p>
+        </div>
+      </section>
+
+      <!-- ===== About ===== -->
+      <section class="section wrap" id="about">
+        <div class="section-head">
+          <h2>About me</h2>
+        </div>
+
+        <div class="bento">
+          <article class="card bento-bio reveal">
+            <p class="lead">I'm a third-year Software Development student at Ter AA in Helmond.</p>
+            <p>At school I started with HTML, CSS, PHP and MySQL. After that came desktop apps in C# and small machines on Arduino in C++. These days I mostly write JavaScript and Python.</p>
+            <p>I like working across different areas, from a quiz app in C# to a REST API in Python.</p>
+          </article>
+
+          <article class="card bento-item reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.2V16c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.8"/><path d="M22 9v6"/></svg>
+            <h3>Studying</h3>
+            <p>Software Development at Ter AA, year 3.</p>
+          </article>
+
+          <article class="card bento-item reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14.5a4 4 0 1 1 1.6-7.6 3.8 3.8 0 0 1 6.8 0A4 4 0 1 1 17 14.5V20H7z"/><path d="M7 17h10"/></svg>
+            <h3>Before code</h3>
+            <p>Several years as a cook. A kitchen teaches you to stay calm when everything happens at once.</p>
+          </article>
+
+          <article class="card bento-small reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+            <h3>Languages</h3>
+            <p>Turkish, English, Dutch</p>
+          </article>
+
+          <article class="card bento-small reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.7-6.5-10.6a6.5 6.5 0 0 1 13 0C18.5 15.3 12 21 12 21z"/><circle cx="12" cy="10.4" r="2.4"/></svg>
+            <h3>Based in</h3>
+            <p>Helmond, the Netherlands</p>
+          </article>
+
+          <article class="card bento-small reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 4.5v13c3 0 6 .5 8 2 2-1.5 5-2 8-2v-13c-3 0-6 .5-8 2z"/><path d="M12 6.5v13"/></svg>
+            <h3>Away from the screen</h3>
+            <p>Reading, drawing, sports, and any cat that lets me pet it.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== Projects ===== -->
+      <section class="section wrap" id="projects">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p>School projects and client work, from desktop games to live websites. Pick a category to filter.</p>
+        </div>
+
+        <!-- script.js shows only the cards whose data-category matches -->
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" type="button" data-filter="web" aria-pressed="false">Web</button>
+          <button class="filter" type="button" data-filter="desktop" aria-pressed="false">Desktop</button>
+          <button class="filter" type="button" data-filter="python" aria-pressed="false">Python</button>
+          <button class="filter" type="button" data-filter="arduino" aria-pressed="false">Arduino</button>
+        </div>
+
+        <div class="projects" id="project-list">
+
+          <!-- live websites first -->
+          <article class="card project is-featured reveal" data-category="web">
+            <div class="cover cover-browser" aria-hidden="true">
+              <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url">barbershopgrey.nl</span></div>
+              <span class="browser-page"></span>
+            </div>
+            <div class="project-body">
+              <h3>Barbershop Grey</h3>
+              <p>The website of Barbershop Grey, built with WordPress for a real client.</p>
+              <ul class="chips"><li>WordPress</li></ul>
+              <div class="project-foot">
+                <span class="tag">Live site, client work</span>
+                <a class="link" href="https://www.barbershopgrey.nl/" target="_blank" rel="noopener">Visit site</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project is-featured reveal" data-category="web">
+            <div class="cover cover-browser" aria-hidden="true">
+              <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url">prakteraa.hosting.ict-college.net</span></div>
+              <span class="browser-page"></span>
+            </div>
+            <div class="project-body">
+              <h3>PrakterAA</h3>
+              <p>A platform where Ter AA students find internships, excursions, guest lectures and assignments. Companies send their request through a form.</p>
+              <ul class="chips"><li>PHP</li></ul>
+              <div class="project-foot">
+                <span class="tag">Live site</span>
+                <a class="link" href="https://prakteraa.hosting.ict-college.net/login.php" target="_blank" rel="noopener">Visit site</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project is-featured reveal" data-category="web">
+            <img class="cover" src="assets/webshop.webp" width="1280" height="672" loading="lazy"
+                 alt="Home page of the GameWorld webshop with PlayStation, PC and Xbox categories">
+            <div class="project-body">
+              <h3>GameWorld webshop</h3>
+              <p>A webshop for games and consoles with product categories, built on PHP and MySQL.</p>
+              <ul class="chips"><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
+              <div class="project-foot">
+                <span class="year">2024</span>
+                <a class="link" href="https://github.com/Pinarcarkci/Webshop" target="_blank" rel="noopener">View code on GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project is-featured reveal" data-category="desktop">
+            <img class="cover" src="assets/astroidinator.webp" width="1230" height="574" loading="lazy"
+                 alt="Astroidinator game screen with a spaceship, enemies, lives and an accuracy counter">
+            <div class="project-body">
+              <h3>Astroidinator</h3>
+              <p>A space shooter for Windows. You fly a ship, shoot enemies and watch your lives and accuracy.</p>
+              <ul class="chips"><li>C#</li><li>.NET</li><li>Windows Forms</li></ul>
+              <div class="project-foot">
+                <span class="year">2024</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-category="web">
+            <div class="cover cover-code tone-cyan" aria-hidden="true"><span class="cover-tab">Website</span><span class="cover-lines lines-c"></span></div>
+            <div class="project-body">
+              <h3>TrendLux website</h3>
+              <p>An informational site with a quote request form for a company in Helmond that sells window frames, doors and roller shutters.</p>
+              <ul class="chips"><li>Client website</li></ul>
+              <div class="project-foot">
+                <span class="year">2026</span>
+                <span class="tag">In progress</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-category="desktop">
+            <div class="cover cover-code tone-violet" aria-hidden="true"><span class="cover-tab">C#</span><span class="cover-lines lines-a"></span></div>
+            <div class="project-body">
+              <h3>Quizmester</h3>
+              <p>A multiple-choice quiz app with login, timers, a skip joker, a top 10 scoreboard and an admin panel.</p>
+              <ul class="chips"><li>C#</li><li>Windows Forms</li><li>SQL Server</li></ul>
+              <div class="project-foot">
+                <span class="year">2026</span>
+                <span class="tag">Team project</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-category="python">
+            <div class="cover cover-code tone-amber" aria-hidden="true"><span class="cover-tab">Python</span><span class="cover-lines lines-b"></span></div>
+            <div class="project-body">
+              <h3>Game Score Manager</h3>
+              <p>Keeps track of players and their scores on a leaderboard. Started as a console app, later got a REST API.</p>
+              <ul class="chips"><li>Python</li><li>FastAPI</li></ul>
+              <div class="project-foot">
+                <span class="year">2026</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-category="web">
+            <div class="cover cover-code tone-cyan" aria-hidden="true"><span class="cover-tab">JavaScript</span><span class="cover-lines lines-a"></span></div>
+            <div class="project-body">
+              <h3>Book dashboard</h3>
+              <p>Searches books from the Open Library API. The data passes through an n8n workflow that runs in Docker.</p>
+              <ul class="chips"><li>JavaScript</li><li>jQuery</li><li>n8n</li><li>Docker</li></ul>
+              <div class="project-foot">
+                <span class="year">2026</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-category="web">
+            <div class="cover cover-code tone-cyan" aria-hidden="true"><span class="cover-tab">PHP</span><span class="cover-lines lines-b"></span></div>
+            <div class="project-body">
+              <h3>English Learning</h3>
+              <p>Practice exams for English, with a list where you save the words you don't know yet.</p>
+              <ul class="chips"><li>JavaScript</li><li>PHP</li><li>MySQL</li></ul>
+              <div class="project-foot">
+                <span class="year">2024</span>
+                <a class="link" href="https://github.com/Pinarcarkci/Test-English" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-category="arduino">
+            <div class="cover cover-code tone-pink" aria-hidden="true"><span class="cover-tab">Arduino</span><span class="cover-lines lines-c"></span></div>
+            <div class="project-body">
+              <h3>Safe Extended</h3>
+              <p>A safe that uses sensors and logic to decide who gets access.</p>
+              <ul class="chips"><li>Arduino</li><li>C++</li></ul>
+              <div class="project-foot">
+                <span class="year">2024</span>
+                <a class="link" href="https://github.com/Pinarcarkci/Safe-Extended---C-" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-category="arduino">
+            <div class="cover cover-code tone-pink" aria-hidden="true"><span class="cover-tab">Arduino</span><span class="cover-lines lines-a"></span></div>
+            <div class="project-body">
+              <h3>The Navigator</h3>
+              <p>A navigation project that uses sensors to guide movement and avoid obstacles.</p>
+              <ul class="chips"><li>Arduino</li><li>C++</li></ul>
+              <div class="project-foot">
+                <span class="year">2024</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-category="desktop">
+            <div class="cover cover-code tone-violet" aria-hidden="true"><span class="cover-tab">C#</span><span class="cover-lines lines-b"></span></div>
+            <div class="project-body">
+              <h3>The Race</h3>
+              <p>A racing game with speed controls and racer trails.</p>
+              <ul class="chips"><li>C#</li><li>Windows Forms</li></ul>
+              <div class="project-foot">
+                <span class="year">2024</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===== Skills ===== -->
+      <section class="section wrap" id="skills">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p>What I have used in real projects. A dashed outline means I'm still learning it.</p>
+        </div>
+
+        <div class="skills">
+          <article class="card skill-card reveal">
+            <h3>Web</h3>
+            <ul class="chips chips-large">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li><li>jQuery</li><li>WordPress</li><li class="learning">React</li>
+            </ul>
+          </article>
+
+          <article class="card skill-card reveal">
+            <h3>Apps and APIs</h3>
+            <ul class="chips chips-large">
+              <li>C#</li><li>Windows Forms</li><li>SQL Server</li><li>C++ on Arduino</li><li class="learning">Python</li><li class="learning">FastAPI</li>
+            </ul>
+          </article>
+
+          <article class="card skill-card reveal">
+            <h3>Tools</h3>
+            <ul class="chips chips-large">
+              <li>Git and GitHub</li><li>Trello</li><li class="learning">Docker</li><li class="learning">n8n</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== Contact ===== -->
+      <section class="section wrap" id="contact">
+        <div class="contact-card reveal">
+          <h2>Let's talk</h2>
+          <p>Email is the best way to reach me.</p>
+          <a class="email" id="email" href="mailto:92790@ter-aa.nl">92790@ter-aa.nl</a>
+          <div class="actions actions-center">
+            <button class="btn btn-primary" id="copy-email" type="button">Copy address</button>
+            <a class="btn btn-glass" href="https://www.linkedin.com/in/pinarcarkci/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-glass" href="https://github.com/Pinarcarkci" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer wrap">
+      <p>© 2026 Pinar Carkci</p>
+      <p>Built with HTML, CSS and JavaScript.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
