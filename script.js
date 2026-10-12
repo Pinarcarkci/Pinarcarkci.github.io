@@ -2,7 +2,6 @@
    Pinar Carkci – portfolio
    1. Starry sky      2. The cat         3. Mobile menu
    4. Project filter  5. Card glow       6. Scroll reveal
-   7. Copy email
    ========================================================== */
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -190,25 +189,3 @@ if (!reducedMotion && "IntersectionObserver" in window) {
     }
   });
 }
-
-/* ---------- 7. Copy email ---------- */
-const copyButton = document.getElementById("copy-email");
-const email = document.getElementById("email");
-
-copyButton.addEventListener("click", async () => {
-  try {
-    await navigator.clipboard.writeText(email.textContent);
-    copyButton.textContent = "Copied";
-  } catch (error) {
-    // copying was blocked: select the address so it can be copied by hand
-    const range = document.createRange();
-    range.selectNodeContents(email);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    copyButton.textContent = "Selected, press Ctrl+C";
-  }
-  setTimeout(() => {
-    copyButton.textContent = "Copy address";
-  }, 2000);
-});
